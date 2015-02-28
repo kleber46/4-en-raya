@@ -1,0 +1,52 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
+public class Menu extends JFrame implements ActionListener {
+	JLabel fondo;
+	static JTextField jug1,jug2;
+	JButton jugar;
+	
+	public Menu() {
+		super("JUEGO DE 4 EN RAYA");
+		setResizable(false);
+		setLocation(200,200);
+		this.setVisible(true);
+		fondo=new JLabel();
+		//setLayout(null);
+		setSize(800,600);
+		fondo.setIcon(new ImageIcon("principal.jpg"));
+		jugar=new JButton("JUGAR");
+		jug1=new JTextField(15);
+		jug2=new JTextField(15);
+		jug1.setBounds(405,120,210,40);
+		jug2.setBounds(410,215,210,40);
+		jugar.setBounds(260,350,200,70);
+		jugar.addActionListener(this);
+		fondo.add(jug1);
+		fondo.add(jug2);
+		fondo.add(jugar);
+		this.add(fondo);
+		pack();
+	}
+
+	public static void main(String[] args) {
+		new Menu();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object obj=e.getSource();
+		if(obj==jugar)
+		{
+			this.hide();
+			new Game();
+		}
+		
+		
+		
+	}
+
+}
